@@ -5,3 +5,5 @@ Here will cover most of the advanced JS concepts which will help us to clear our
 ## Markdown preview
 
 [Promise ](promise/theory.md)
+
+[Async-Await ](async-await/theory.txt)

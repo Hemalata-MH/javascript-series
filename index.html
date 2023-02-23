@@ -9,9 +9,16 @@
     <script>
       function btnPromiseClick() {
         var srcPromise = document.createElement("script");
-        srcPromise.src = "/promise/code.js";
+        srcPromise.src = "promise/code.js";
         srcPromise.type = "text/javascript";
         document.body.appendChild(srcPromise);
+      }
+
+      function btnAsyncClick() {
+        var srcAsyncAwait = document.createElement("script");
+        srcAsyncAwait.src = "async-await/code.js";
+        srcAsyncAwait.type = "text/javascript";
+        document.body.appendChild(srcAsyncAwait);
       }
     </script>
   </head>
@@ -30,7 +37,10 @@
       <button class="ui teal button">
         <i class="sync alternate icon"></i>Event Loop
       </button>
-      <button class="ui button">Secondary</button>
+      <button class="ui grey button" onclick="btnAsyncClick()">
+        <i class="hand paper outline icon"></i>
+        Async-Await
+      </button>
       <button class="ui red button">Red</button>
       <button class="ui orange button">Orange</button>
       <button class="ui yellow button">Yellow</button>

@@ -24,6 +24,12 @@ updateWallet(walletInfo);
 });
 });
 
+# 3 States
+
+1. Pending - the async operation is in the pending state
+2. Fulfilled - the promise has completed its's async operation & has returned some data
+3. Rejected - the promise has rejected to perform async operation with an exception thrown
+
 # 2 very imporatnt things to remember
 
 1. always return the promise which most of the developers forget this days

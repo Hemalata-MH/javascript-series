@@ -1,0 +1,5 @@
+1. async await is another way to handle async operations just like promises
+2. async will always return promise
+3. await basically waits for the async operations to complete.
+4. If the operation is not complete it says that you continue with other tasks & as soon as
+   the promise is fulfilled you can access this by attaching.then keyword
