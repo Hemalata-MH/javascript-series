@@ -7,7 +7,6 @@ ShowOrderSummary
 updateWallet
 */
 
-/*
 var cart = ["Bhagvat Gita", "Sutras", "Asanas", "Pranayamas"];
 
 // return order ID
@@ -75,4 +74,3 @@ createOrder()
   .catch(function (err) {
     console.log("err : " + err);
   });
-  */
