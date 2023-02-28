@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        var person1 = {
+          name: "Hema",
+          displayName: function (state, country) {
+            console.log(this.name + " from " + state + ", " + country);
+          },
+        };
+        var person2 = {
+          name: "Tina",
+        };
+        person1.displayName.apply(person2, ["Goa", "India"]);
+      });
+    </script>
+
+    <div class="beautify">
+      <h1>Apply Methods:</h1>
+      <p style="cursor: pointer; float: right; color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        is same as call method but the only difference is
+        <b>the second argument is passed as an array & not the string</b>
+      </p>
+      <p><u>Below is the example </u></p>
+      <div class="ui raised segment">
+        <pre>
+        var person1 = {
+            name : "Hema",
+            displayName : function(){
+                console.log(this.name + "from " + state + ", " + country);
+            }
+        }
+
+        var person2 = {
+            name : "Tina",
+        }
+
+        person1.displayName.apply(person2, ["Goa", "India"]);
+      </pre
+        >
+        <p>Now the output will be - Tina from Goa, India</p>
+      </div>
+    </div>
+  </body>
+</html>

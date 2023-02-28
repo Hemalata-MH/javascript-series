@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      $(document).ready(function () {
+        var cart = ["Bhagvat Gita", "Sutras", "Asanas", "Pranayamas"];
+
+        // return order ID
+        function createOrder() {
+          return new Promise(function (resolve, reject) {
+            if (!validateOrder()) {
+              var err = new Error("The cart has no items in it");
+              reject(err);
+            } else {
+              // Say suppose an API is returning order Id - 12345;
+              const orderId = "12345";
+              resolve(orderId);
+            }
+          });
+        }
+
+        function validateOrder() {
+          return true;
+        }
+        // return payment info i.e. success or failure
+        function proceedToPayment(orderId) {
+          return new Promise(function (resolve, reject) {
+            if (!orderId) {
+              reject("Order Id is not valid");
+            } else {
+              resolve("Payment is successful");
+            }
+          });
+        }
+
+        // returns the number of items purchased
+        function ShowOrderSummary(paymentInfo) {
+          return new Promise(function (resolve, reject) {
+            if (!paymentInfo) {
+              reject("Payment has failed");
+            } else {
+              resolve("Payment is successful");
+            }
+          });
+        }
+
+        // return wallet info
+
+        function updateWallet(walletInfo) {
+          return new Promise(function (resolve, reject) {
+            if (cart.length === 4) {
+              resolve(walletInfo + "Wallet is updated");
+            } else {
+              reject("Please make the neccessary payment");
+            }
+          });
+        }
+
+        createOrder()
+          .then(function (orderId) {
+            return proceedToPayment(orderId);
+          })
+          .then(function (paymentInfo) {
+            return ShowOrderSummary(paymentInfo);
+          })
+          .then(function (walletInfo) {
+            console.log("walletInfo - " + walletInfo);
+            return updateWallet(walletInfo);
+          })
+          .catch(function (err) {
+            console.log("err : " + err);
+          });
+      });
+    </script>
+    <div class="beautify">
+      <h1>Promises</h1>
+      <p style="cursor: pointer; float: right; color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        Promise is an object that represents eventual completion or rejection of
+        asynchronous operations
+      </p>
+      <p>Promises has 3 major states</p>
+      <ul style="list-style-type: disc">
+        <li>
+          <span style="font-weight: 400; color: blueviolet">Pending</span>: The
+          async operation is in the pending state
+        </li>
+        <li>
+          <span style="font-weight: 400; color: blueviolet"
+            >Resolved (Fullfilled)</span
+          >: the promise has completed its's async operation & has returned some
+          data
+        </li>
+        <li>
+          <span style="font-weight: 400; color: blueviolet">Rejected</span>:the
+          promise has rejected to perform async operation with an exception
+          thrown
+        </li>
+      </ul>
+      <p>
+        <u>Finally method</u>: One of the promise method which is not concerned
+        if the promise is resolved or rejected. This is accessed as
+        promise.finally(function(){}), just the same way as .then() & .catch()
+        method
+      </p>
+      <p>
+        <b
+          >Promise returns 2 major data which can be viewed in the browser
+          console</b
+        >
+      </p>
+      <ul style="list-style-type: disc">
+        <li>
+          <span style="font-weight: 400; color: blueviolet"
+            >[PromiseResult]</span
+          >
+          - the response
+        </li>
+        <li>
+          <span style="font-weight: 400; color: blueviolet"
+            >[PromiseState]</span
+          >
+          - pending, fullfilled or rejected
+        </li>
+      </ul>
+      <p>
+        <b><u>2 very imporatnt things to remember</u></b>
+      </p>
+      <ul>
+        <li>
+          always return the promise which most of the developers forget this
+          days
+        </li>
+        <li>
+          if .catch() is excecuted before .then() then all the errors of prev
+          .then() functions will be handled & definetely the next then()
+          function is executed
+        </li>
+      </ul>
+      <p>
+        Promises were introduced to handle asynchronous operations mainly
+        callback functions had 2 major problems
+      </p>
+      <ul>
+        <li>
+          <span style="font-weight: 400; color: blueviolet"
+            >Inversion of control</span
+          >
+          -> solution is to use promise
+        </li>
+        <li>
+          <span style="font-weight: 400; color: blueviolet">Callback hell</span>
+          -> use of .then() method in a systematic way
+        </li>
+      </ul>
+      <p>
+        <u>Below is the example of callback hell - it's a nested functions</u>
+      </p>
+      <div class="ui raised segment">
+        <pre>
+        createOrder(cart, function (orderId) {
+            proceedToPayment(orderId, function (paymentInfo) {
+                ShowOrderSummary(paymentInfo, function () {
+                    updateWallet(walletInfo);
+                });
+            });
+         });
+        </pre>
+      </div>
+      <p>
+        <u
+          >The same above code snippet can be achieved in a systematic way using
+          promise</u
+        >
+      </p>
+      <div class="ui raised segment">
+        <pre>
+            var cart = ["Bhagvat Gita", "Sutras", "Asanas", "Pranayamas"];
+            // return order ID
+            function createOrder() {
+                return new Promise(function (resolve, reject) {
+                    if (!validateOrder()) {
+                        var err = new Error("The cart has no items in it");
+                        reject(err);
+                    } else {
+                    // Say suppose an API is returning order Id - 12345;
+                       const orderId = "12345";
+                       resolve(orderId);
+                    }
+                });
+            }
+
+            function validateOrder() {
+                return true;
+            }
+
+            // return payment info i.e. success or failure
+            function proceedToPayment(orderId) {
+                return new Promise(function (resolve, reject) {
+                    if (!orderId) {
+                        reject("Order Id is not valid");
+                    } else {
+                        resolve("Payment is successful");
+                    }
+                });
+            }
+
+            // returns the number of items purchased
+            function ShowOrderSummary(paymentInfo) {
+                return new Promise(function (resolve, reject) {
+                    if (!paymentInfo) {
+                        reject("Payment has failed");
+                    } else {
+                    resolve("Payment is successful");
+                    }
+                });
+            }
+
+            // return wallet info
+            function updateWallet(walletInfo) {
+                return new Promise(function (resolve, reject) {
+                    if (cart.length === 4) {
+                        resolve(walletInfo + "Wallet is updated");
+                    } else {
+                        reject("Please make the neccessary payment");
+                    }
+                });
+            }
+
+            createOrder()
+            .then(function (orderId) {
+                return proceedToPayment(orderId);
+            })
+            .then(function (paymentInfo) {
+                return ShowOrderSummary(paymentInfo);
+            })
+            .then(function (walletInfo) {
+                console.log("walletInfo - " + walletInfo);
+                return updateWallet(walletInfo);
+            })
+            .catch(function (err) {
+                console.log("err : " + err);
+            });
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>

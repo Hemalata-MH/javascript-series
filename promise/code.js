@@ -1,3 +1,5 @@
+// use this place to practice same topic code
+
 /* Asynchronous Operations 
 createOrder
 proceedToPayment
@@ -5,6 +7,7 @@ ShowOrderSummary
 updateWallet
 */
 
+/*
 var cart = ["Bhagvat Gita", "Sutras", "Asanas", "Pranayamas"];
 
 // return order ID
@@ -72,3 +75,4 @@ createOrder()
   .catch(function (err) {
     console.log("err : " + err);
   });
+  */

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      $(document).ready(function () {
+        const rad = [2, 4, 6, 8];
+        const areaOfCircle = function (radius) {
+          const output = [];
+          for (let i = 0; i < radius.length; i++) {
+            output.push(Math.PI * radius[i] * radius[i]);
+          }
+          return output;
+        };
+
+        const areaOfCircumference = function (radius) {
+          const output = [];
+          for (let i = 0; i < radius.length; i++) {
+            output.push(2 * Math.PI * radius[i]);
+          }
+          return output;
+        };
+
+        const diameterHOF = function (radius) {
+          const output = [];
+          for (let i = 0; i < radius.length; i++) {
+            output.push(2 * radius[i]);
+          }
+          return output;
+        };
+        // console.log(areaOfCircle(radius));
+        // console.log(areaOfCircumference(radius));
+        // console.log(diameterHOF(radius));
+
+        // Higher Order Function
+
+        const area = function (radius) {
+          return Math.PI * radius * radius;
+        };
+
+        const circumference = function (radius) {
+          return 2 * Math.PI * radius;
+        };
+
+        const diameter = function (radius) {
+          return 2 * radius;
+        };
+
+        const calculate = function (rad, logic) {
+          const output = [];
+          for (let i = 0; i < rad.length; i++) {
+            output.push(logic);
+          }
+          return output;
+        };
+
+        console.log(calculate(rad, area));
+        console.log(calculate(rad, circumference));
+        console.log(calculate(rad, diameter));
+      });
+    </script>
+    <div class="beautify">
+      <h1>Higher Order Function</h1>
+      <p style="cursor: pointer; float: right; color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        Higher order function is a function that takes another function as an
+        argument or return a function
+      </p>
+      <div class="ui basic message">
+        The function which is passed as an argument to higher order function is
+        called as the <b>Callback function</b>
+      </div>
+      <h3>Advantages of using Higher Order Function</h3>
+      <ul style="list-style-type: circle">
+        <li>Reusability of the code</li>
+        <li>Modularity (chunks of code)</li>
+      </ul>
+      <ul></ul>
+      <p>
+        <u>Let's see this with an example - passing function as an argument</u>
+      </p>
+      <div class="ui raised segment">
+        <pre>
+        const radius = [2, 4, 6, 8];
+        const areaOfCircle = function (radius) {
+          const output = [];
+          for (let i = 0; i < radius.length; i++) {
+            output.push(Math.PI * radius[i] * radius[i]);
+          }
+          return output;
+        };
+
+        const areaOfCircumference = function (radius) {
+          const output = [];
+          for (let i = 0; i < radius.length; i++) {
+            output.push(2 * Math.PI * radius[i]);
+          }
+          return output;
+        };
+
+        const diameter = function (radius) {
+          const output = [];
+          for (let i = 0; i < radius.length; i++) {
+            output.push(2 * radius[i]);
+          }
+          return output;
+        };
+        console.log(areaOfCircle(radius));
+        console.log(areaOfCircumference(radius));
+        console.log(diameter(radius));
+</pre
+        >
+      </div>
+
+      <h2>Can you guess the problem with this code?</h2>
+      <p><b>Let me help you to understand</b></p>
+      <ul>
+        <li>
+          If you notice the below code is repeated for all 3 functions hence in
+          such cases it's preferable to use <b>Higher Order function</b>
+        </li>
+      </ul>
+      <pre>
+            const output = [];
+            for (let i = 0; i < radius.length; i++) {
+              output.push(2 * radius[i]);
+            }
+            return output;
+            </pre
+      >
+
+      <b
+        >In such case we can create 3 different functions (area,circumference,
+        diameter) which will return only the logic & this functions can be later
+        passed as an argument</b
+      >
+      <u>See the example below</u>
+      <div class="ui raised segment">
+        <pre>
+        const area = function (radius) {
+            return Math.PI * radius * radius;
+          };
+          
+          const circumference = function (radius) {
+            return 2 * Math.PI * radius;
+          };
+          
+          const diameter = function (radius) {
+            return 2 * radius;
+          };
+          
+          const calculate = function (radius, logic) {
+            const output = [];
+            for (let i = 0; i < radius.length; i++) {
+              output.push(logic);
+            }
+            return output;
+          };
+          
+          console.log(calculate(radius, area));
+          console.log(calculate(radius, circumference));
+          console.log(calculate(radius, diameter));
+
+      </pre
+        >
+      </div>
+      <div class="ui basic message">
+        Note : area, circumference & diameter are <b>Callback functions</b>
+        <p>calculate is the <b>Higher Order Function</b></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      $(document).ready(function () {
+        function browserName() {
+          const name = "Mozilla";
+          function displayName() {
+            console.log(name);
+          }
+          return displayName;
+        }
+
+        const myFunc = browserName();
+        myFunc();
+      });
+    </script>
+    <div class="beautify">
+      <h1>Closures</h1>
+      <p style="cursor: pointer; float: right; color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        Functions along with it's lexical environment forms a <b>Closure</b>
+      </p>
+      <p>
+        In other words, <span style="color: blueviolet">Closure</span> is an
+        ability of a function to remember the functions & the variables that are
+        declared in it's outer scope
+      </p>
+      <div class="ui raised segment basic essage">
+        <pre>
+            function browserName() {
+                const name = "Mozilla";
+                function displayName() {
+                  console.log(name);
+                }
+                return displayName;
+              }
+              
+              const myFunc = browserName();
+              myFunc();
+        </pre>
+      </div>
+      <p><u>Let's understand the above code</u></p>
+      <p>
+        Here we can access variable
+        <span style="color: blueviolet">name</span> even out of it's parent
+        scope. In other words, when we invoke a makeFunc() outside the function
+        declartaion we can still access the value of 'name'
+      </p>
+
+      <p style="color: indigo">
+        Note:- We can retain the values of variable & functions upto nth level
+      </p>
+      <p><b>Uses of Closures</b></p>
+      <ul style="list-style-type: square">
+        <li>Modern Design Pattern</li>
+        <li>Currying</li>
+        <li>Functions like <span style="color: blueviolet">'once'</span></li>
+        <li>
+          Maintaining states in
+          <span style="color: blueviolet">async</span> world
+        </li>
+        <li>SetTimeOut</li>
+        <li>Iterators</li>
+        <li>Many more</li>
+      </ul>
+    </div>
+  </body>
+</html>

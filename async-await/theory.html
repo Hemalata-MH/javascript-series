@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      $(document).ready(function () {
+        async function getAllUsers() {
+          const url = await fetch("https://api.github.com/users");
+          const json = await url.json();
+          return json;
+        }
+
+        const users = getAllUsers();
+        console.log(users);
+
+        users.then(function (user) {
+          console.log(user);
+        });
+      });
+    </script>
+    <div class="beautify">
+      <h1>Async-Await</h1>
+      <p style="cursor: pointer; float: right; color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        async await is another way to handle async operations just like promises
+      </p>
+      <p>async will always return promise</p>
+      <p>await basically waits for the async operations to complete</p>
+      <p>
+        If the operation is not complete it says that you continue with other
+        tasks & as soon as the promise is fulfilled you can access this by
+        attaching '.then' keyword just like how we do in promises
+      </p>
+      <p><u>Let's understand this with an example</u></p>
+      <div class="ui raised segment">
+        <pre>
+        async function getAllUsers() {
+        const url = await fetch("https://api.github.com/users");
+        const json = await url.json();
+        return json;
+      }
+      
+      const users = getAllUsers();
+      console.log(users);</pre
+        >
+      </div>
+
+      <p><u>Let's understand this with an example</u></p>
+      <ul style="list-style-type: upper-alpha">
+        <li>
+          When we add a keyword
+          <span style="font-weight: 400; color: blueviolet">"async"</span> this
+          means that this function will be operated with an asynchronous
+          opeartion
+        </li>
+        <li>
+          Keyword
+          <span style="font-weight: 400; color: blueviolet">"await"</span> means
+          it's telling the JS engine that let me finish this line of code first
+          before proceeding with the next statement till then if you have
+          anything else to execute please fo execute & come back else just wait
+          until I get the response from the server (i.e.
+          https://api.github.com/users)
+        </li>
+        <li>
+          Keyword
+          <span style="font-weight: 400; color: blueviolet">"json()"</span>
+          converts the response returned from the server to browser readable
+          format (i.e. JSON Object)
+        </li>
+      </ul>
+
+      <p>
+        <u
+          >Let's see how to access the resonse that this promise has returned</u
+        >
+      </p>
+      <p>
+        <span style="font-weight: 400; color: blueviolet">".then()"</span> is
+        used to access the response that this promise has returned
+      </p>
+      <p>Just as below</p>
+      <div class="ui raised segment">
+        <pre>
+            const users = getAllUsers();
+            users.then(function (user) { 
+                console.log(user);
+            })
+
+        </pre>
+      </div>
+      <p>The above snippet will give access to all the git users</p>
+    </div>
+  </body>
+</html>

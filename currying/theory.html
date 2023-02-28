@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <title>Currying</title>
+    <script src="currying/code.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {});
+    </script>
+
+    <div class="beautify">
+      <h1>Currying:</h1>
+      <p style="cursor: pointer; float: right; color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        is when you break down the function that receives many arguments into
+        series of fuctions so that each function can receive only one argument
+      </p>
+
+      <div class="ui error message">
+        <div class="header">Currying can be done using</div>
+        <ul class="list">
+          <li>bind() method</li>
+          <li>closures</li>
+        </ul>
+      </div>
+      <p><u>Using bind() method</u></p>
+      <div class="ui raised segment">
+        <pre>
+            function multiply(x, y){
+                console.log(x * y);
+            }
+
+            var multiplyByTwo = multiply.bind(this, 2,4);
+            multiply();
+        </pre>
+        <p>output - 8</p>
+        <p>
+          <span style="color: blueviolet">2 will be multiplied with 4</span>
+        </p>
+      </div>
+      <p>Another way to call bind() method</p>
+      <div class="ui raised segment">
+        <pre>
+            var multiplyByThree = multiply.bind(this, 2);
+            multiplyByThree(3);</pre
+        >
+        <p>output - 9</p>
+        <p>
+          <span style="color: blueviolet">2 will be multiplied with 3</span>
+        </p>
+      </div>
+      <div class="ui raised segment">
+        <pre>
+            var multiplyByFour = multiply.bind(this, 4, 6);
+            multiplyByFour(4);
+        </pre>
+        <p>output - 24</p>
+        <p>
+          <span style="color: blueviolet"
+            >4 will be multiplied with 6 & the argument passed in multiplyByFour
+            function will be ignored</span
+          >
+        </p>
+      </div>
+      <p><u>Using closure</u></p>
+      <div class="ui raised segment">
+        <pre>
+            function multiply(x) {
+                return function (y) {
+                  console.log(x * y);
+                };
+              }
+              
+              var curryingOutput = multiply(3);
+              curryingOutput(4);
+        </pre>
+        <p>Output - 12</p>
+        <p>
+          <span style="color: blueviolet"
+            >variable "x" forms a closure as that retains it's value when called
+            from outside</span
+          >
+        </p>
+      </div>
+      <p><u>Let's check one more example</u></p>
+      <div class="ui raised segment">
+        <pre>
+            let sum = function (a) {
+                return function (b) {
+                  return function (c) {
+                    return function (d) {
+                      return a + b + c + d;
+                    };
+                  };
+                };
+              };
+              
+              let result = sum(1)(2)(3)(4);
+              
+        </pre>
+        <p>Output - 10</p>
+        <p>
+          <span style="color: blueviolet"
+            >This is called though currying but also functional scope
+            chain</span
+          >
+        </p>
+      </div>
+      <p>
+        <b>
+          Now what if we had something like sum(1)(2)(3)(4)(), We can make this
+          recurssive. <u>Let's see this below</u></b
+        >
+      </p>
+      <div class="ui raised segment">
+        <pre>
+         
+            let sum1 = function (a) {
+              return function (b) {
+                if (b) {
+                  return sum1(a + b);
+                } else {
+                  return a;
+                }
+              };
+            };
+            
+            let sumRecurrsive = sum1(1)(2)(3)(4)();
+            </pre
+        >
+        <p>output - 10</p>
+      </div>
+      <p>
+        <u>Let's try writing above code using <b>ES6</b></u>
+      </p>
+      <div class="ui raised segment">
+        <pre>
+            let sum2 = (a) => (b) => b ? sum2(a + b) : a;
+            let es6 = sum2(1)(2)(3)(4)();
+        </pre>
+        <p>Output - 10</p>
+      </div>
+    </div>
+  </body>
+</html>

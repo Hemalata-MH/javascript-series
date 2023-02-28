@@ -1,9 +1,27 @@
 # javascript-series
 
-Here will cover most of the advanced JS concepts which will help us to clear our interviews
+Here will cover most of the JS concepts which will help us to get selected for the interviews
 
-## Markdown preview
+## Click on the topics below that interests you
 
-[Promise ](promise/theory.md)
+[Promise ](promise/theory.html)
 
-[Async-Await ](async-await/theory.txt)
+[Event Loop ](event-loop/theory.html)
+
+[Async-Await ](async-await/theory.html)
+
+[Hoising ](hoisting/theory.html)
+
+[Higher Order Functions ](hof/theory.html)
+
+[Closures ](closures/theory.html)
+
+[Call Method ](call/theory.html)
+
+[Apply Method ](apply/theory.html)
+
+[Bind Method ](bind/theory.html)
+
+[Currying ](currying/theory.html)
+
+[Interview Questions ](interview-questions/code.js)

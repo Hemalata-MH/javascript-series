@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <body>    
+    <div class="beautify">
+      <h1>What is Hoisting?</h1>
+      <p>
+        Hoisting is the default behavior of javascript which moves the variables
+        & function declarations on top of the scope
+      </p>
+      <p>
+        var, let & const all are hoisted but when tried consoling let & const
+        before declarations JS throws error in the browser console. <b>Why?</b>
+      </p>
+      <p>
+        When we see in the browser console, the let & const values are assigned
+        a special placeholder i.e. 'undefined' but JS is not able to behave
+        (print) like that in the case of var as the let & const are in the
+        temporal dead zone (TDZ) for time being though they are hoisted
+      </p>
+      <div class="ui info message">
+        <div class="header">Temporal Dead Zone?</div>
+        <ul class="list">
+          <li>
+            TDZ is the time when the let & const are hoisted till they are
+            assigned(initalized) a value
+          </li>
+        </ul>
+      </div>
+      <p><u>Let's see this with an example below</u></p>
+      <div class="ui raised segment">
+        <pre>
+          console.log(x);
+          console.log(y);
+          console.log(z);
+          var x = 1;
+          let y = 2;
+          const z = 3;
+        </pre>
+        
+      </div>
+      <div class="ui raised segment">
+        Output
+        <pre>
+          undefined
+          Referrence - cannot access 'y' before initialization
+        </pre>
+        
+      </div>
+      <p>
+        <b>Why JS behaves different for var & let keyword</b>
+        <p>Because JS prints undefined for 'x' as before initialization the JS
+          assigns a special placeholder to var keyword & for let JS throws error
+          because at present let are in the temporal dead zone (same behaviour
+          for const)</p>
+      </p>
+    </div>
+  </body>
+</html>

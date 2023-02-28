@@ -1,0 +1,153 @@
+<html>
+  <head>
+    <title></title>
+   
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        var person1 = {
+        name: "Hema",
+        displayName: function (state) {
+            console.log(this.name + " from " + state);
+        },
+        };
+
+        var person2 = {
+        name: "Tina",
+        };
+
+        person1.displayName("Mumbai");
+        person1.displayName.call(person2, "Goa"); 
+      });
+    </script>
+
+    <div class="beautify">
+      <h1>Call Methods:</h1>
+      <p style="cursor: pointer; float: right; color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+
+      <ul style="list-style-type: disc">
+        <li>are used to invoke a function on an object</li>
+        <li>
+          We can also use this methods when the same functions of an object
+          need's to be called by different object
+        </li>
+      </ul>
+      <p style="color: blueviolet">call function/method takes 2 arguments</p>
+      <ul>
+        <li>
+          The first value is the reference to the
+          <span style="color: chartreuse">"this"</span> keyword, e:g this.name 
+        </li>
+        <li>The second value takes the arguments in the string format, e:g "Goa"</li>
+      </ul>
+      <p>
+      <div class="ui basic message">
+        passing this object is very very important. eg: person1.displayName.call(person2, "goa") 
+        <p>person2 is the 'this' values passed </p> </div>
+     
+        
+        <b><u>Let's understand this with an example. This is how we can invoke a function</u></b>
+      </p>
+      <div class="ui raised segment">
+        <pre>
+            var person1 = {
+                name: "Hema",
+                displayName : function(){
+                    console.log(this.name);
+                }
+            }
+            person1.displayName();
+        </pre>
+      </div>
+      <p>Say suppose I have one more object as below</p>
+      <div class="ui raised segment">
+        <pre>
+            var person2 = {
+                name : 'Tina',
+            }
+        </pre>
+      </div>
+      <p>
+        If I want to display the name of object person2. One way to do this is
+        to copy the above displayName function & paste it in the object person2
+        as shown below
+      </p>
+      <div class="ui raised segment">
+        <pre>
+            var person2 = {
+                name : "Tina",
+                displayName : function(){
+                    console.log(this.name);
+                }
+            }
+        </pre>
+      </div>
+      <p>
+        But this is not the recommended way. Hence we can invoke a displayName
+        function of object person1 & use the same function for object person2.
+        <u>Given as below</u>
+      </p>
+      <div class="ui raised segment">
+        <pre>
+            var person1 = {
+                name : "Hema",
+                displayName : function(){
+                    console.log(this.name);
+                }
+            }
+
+            var person2 = {
+                name : "Tina",
+            }
+
+            person1.displayName.call(person2);
+        </pre>
+        <p>Now the output will be - Tina</p>
+      </div>
+      <p>If we want to pass an argument(s) to a function then we can follow <b><u>below example</u></b></p>
+     
+            <div class="ui raised segment">
+            <pre>
+                var person1 = {
+                    name : "Hema",
+                    displayName : function(state){
+                        console.log(this.name + " from " + state);
+                    }
+                }
+
+               person1.displayName("Mumbai"); 
+            </pre>
+            <p><u>Output is Hema from Mumbai</u></p>
+        </div>
+        <div class="ui raised segment"> <pre >
+          var person1 = {
+            name : "Hema",
+            displayName : function(){
+              console.log(this.name + " from " + state);
+            }
+          }
+
+          var person2 = {
+            name : "Tina"
+          }
+
+          person1.displayName.call(person2, "Goa"); 
+        </pre>
+        <p><u>Output is Tina from Goa</u></p>
+        </div>
+       
+        <div class="ui error message">
+            <div class="header">
+              Points to remember
+            </div>
+            <ul class="list">
+              <li>person1.displayName("Mumbai"); //calls the fuunction of the same object</li>
+              <li>person1.displayName.call(person2, "Goa"); // calls another object which can make use of another object's function</li>
+            </ul>
+          </div>
+    </div>
+  </body>
+</html>
