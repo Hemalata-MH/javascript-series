@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Pass By Value & Pass By Referrence</title>
+    <script src="array-methods/code.js"></script>
+  </head>
+  <body>
+    <div class="beautify">
+      <h1>Array Methods()</h1>
+      <!--forEach()-->
+      <b>forEach()</b>
+      <p style="color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        This method is used to iterate each elemnts in an array.
+        <u>For example</u>
+      </p>
+      <p>forEach method modifies the original array </p>
+      <div class="ui segment">
+        <pre>
+            var arr1 = [1, 2, 3, 4, 5];
+            arr1.forEach((x) => {
+                console.log(x);
+            })
+        </pre>
+        <p>Output</p>
+        <ul style="list-style-type: none">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </div>
+      <!--map()-->
+      <b>map()</b>
+      <p>
+        This methods loops through each element & returns a new array. Hence do not modify the original array
+        <u>For example</u>
+      </p>
+      <div class="ui segment">
+        <pre>
+            var arr1 = [1, 2, 3, 4, 5];
+            var mapArr = arr1.map((x) => x * 2);
+            console.log(mapArr);
+        </pre>
+        <p>Output</p>
+        <ul style="list-style-type: none">
+          <li>[2, 4, 6, 8, 10]</li>
+        </ul>
+      </div>
+      <!--filter()-->
+      <b>filter()</b>
+      <p>
+        This method is also iterates on every array element & returns an new
+        array as per the conditions written down
+        <u>For example</u>
+      </p>
+      <div class="ui segment">
+        <pre>
+            var arr1 = [1, 2, 3, 4, 5];
+            var filterArr = arr1.filter((x) => x === 2 || x === 4);
+            console.log(filterArr);
+        </pre>
+        <p>Output</p>
+        <ul style="list-style-type: none">
+          <li>[2, 4]</li>
+        </ul>
+      </div>
+
+      <!--reduce()-->
+      <b>reduce()</b>
+      <p>
+        This method returns only one element after the given condition is
+        satisfied
+        <p>
+            
+            <u>reduce() method takes 2 arguments</u></p>
+        <ul style="color: blueviolet">
+            <li>
+                acc - it's just like a variable that is used to store & return a final value
+            </li>
+            <li>curr - the current elemnt of an array where iteration is happening</li>
+        </ul>
+        <u>For example</u>
+      </p>
+      <div class="ui segment">
+        <pre>
+            var arr1 = [1, 2, 3, 4, 5];
+            var sumReduce = arr1.reduce((acc, curr) => {
+                return acc + curr;
+            });
+            console.log(sumReduce);
+        </pre>
+        <p>Output</p>
+        <ul style="list-style-type: none">
+          <li>15</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

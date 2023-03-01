@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <title>Pass By Value & Pass By Referrence</title>
+    <script src="pass-by-value-reference/code.js"></script>
+  </head>
+  <body>
+    <div class="beautify">
+      <h1>Pass By Value</h1>
+
+      <p style="color: orangered">
+        <b><u>Open browser console to view the output</u></b>
+      </p>
+      <p>
+        operates on <u>primitive data types</u> such as boolean, null,
+        undefined, strings & numbers
+      </p>
+      <p>
+        In general terms, if I change the value of one variable & if the same
+        variable is assigned to another & if we try to change any variable value
+        then only the variable that is changed will have the new value
+      </p>
+      <p>
+        I know I am confusing you. Let me demonstrate this with an example below
+      </p>
+      <div class="ui segment">
+        <pre>
+            var a = 1;
+            var b = 2;
+            console.log(a, b);
+        </pre>
+        <p>Output - 
+            <ul style="list-style-type: none;">
+                <li> 1 2</li>
+                
+            </ul>
+           </p>
+        <!-- <p style="color:darkblue"><u>Let's update the value of obj2</u></p> -->
+        <pre>
+            var x = 1;
+            var y = x; 
+            console.log(x, y);
+        </pre>
+        <p>Output - 
+            <ul style="list-style-type: none;">
+                <li> 1 1</li>
+               
+            </ul>
+           </p>
+        <p style="color:darkblue"><u>Let's update the value of y</u></p> 
+        <pre>
+            y = x + 5; 
+            console.log(x, y);</pre
+        >
+        <p>Output - 
+            <ul style="list-style-type: none;">
+                <li> 1 6</li>
+            </ul>
+           </p>
+      </div>
+      <p style="color: blueviolet">
+        <u
+          >This purely means that no matter how many times we change the value
+          of variable 'y', the value of variable 'x' remains the same</u
+        >
+      </p>
+      <p>
+        It means that the variables 'x' & 'y' behave independently on each other
+      </p>
+      <h1>Pass by reference</h1>
+      <p>
+        operates on <u>non-primitive data types</u> such as objects & arrays
+      </p>
+      <u>Let's understand this with an example</u>
+      <div class="ui segment">
+        <pre>
+            var obj1 = {
+                name: "Hema",
+                State: "India",
+              };
+              
+              var obj2 = obj1;
+              console.log(obj1);
+              console.log(obj2);
+        </pre>
+        <p>Output - 
+            <ul style="list-style-type: none;">
+                <li> {name :"Hema", State : "India"}</li>
+                <li> {name :"Hema", State : "India"}</li>
+            </ul>
+           </p>
+        <p style="color:darkblue"><u>Let's update the value of obj2</u></p>
+        <pre>
+            obj2.name = "Shardha";
+            console.log(obj1);
+            console.log(obj2);
+        </pre>
+        <p>Output - 
+            <ul style="list-style-type: none;">
+                <li> {name :"Shardha", State : "India"}</li>
+                <li> {name :"Shardha", State : "India"}</li>
+            </ul>
+           </p>
+        <p style="color:darkblue"><u>Now let's check this for arrays</u></p>
+        <pre>
+            var arr1 = [1, 2, 3, 4];
+            var arr2 = arr1;
+            console.log(arr1);
+            console.log(arr2);
+        </pre>
+        <p>Output - 
+            <ul style="list-style-type: none;">
+                <li> [1,2,3,4]</li>
+                <li> [1,2,3,4]</li>
+            </ul>
+           </p>
+        <p style="color:darkblue"><u>Now let's change the value of arr1</u></p>
+        <pre>
+            arr1.push(5);
+            console.log(arr1);
+            console.log(arr2);
+        </pre>
+        <p>Output - 
+            <ul style="list-style-type: none;">
+                <li> [1,2,3,4,5]</li>
+                <li> [1,2,3,4,5]</li>
+            </ul>
+           </p>
+      </div>
+      <div style="color:blueviolet; text-decoration: underline;">
+        <ul style="list-style-type: none;">
+            <li>
+                Yes this is how objects & arrays behave & this is what is called as pass by reference.
+            </li>
+            <li>
+                This happens because obj1 is saved as a reference to obj2 typically consider obj1 to be refered as id & if something changes to that id it auto changes it's data types value
+            </li>
+            <li>
+                In short, both objects are dependent on each other
+            </li>
+            </ul>
+    </div>
+      
+    </div>
+  </body>
+</html>

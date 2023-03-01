@@ -8,8 +8,17 @@
     />
     <link rel="stylesheet" href="index.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
     <script>
       $(document).ready(function () {
+        $(".ui.sidebar")
+          .sidebar({
+            dimPage: false,
+            closable: false,
+          })
+          .sidebar("show");
+
         $("#root").show();
         $("#root").load("promise/theory.html");
       });
@@ -49,60 +58,42 @@
       function btnCurryingClick() {
         $("#root").load("currying/theory.html");
       }
+
+      function btnPassByValueReferenceClick() {
+        $("#root").load("pass-by-value-reference/theory.html");
+      }
+
+      function btnArrayMethodsClick() {
+        $("#root").load("array-methods/theory.html");
+      }
       function btnInterviewQuestionsClick() {}
     </script>
   </head>
 
   <body>
-    <p></p>
-    <h1 style="margin-bottom: 2px">Learn Javascript With Hema</h1>
-    <div class="ui raised segment">
-      <button
-        class="ui orange button"
-        id="btn-promise"
-        onclick="btnPromiseClick()"
-      >
-        <i class="handshake outline icon"></i>Promise
-      </button>
-      <button class="ui teal button">
-        <i class="sync alternate icon"></i>Event Loop
-      </button>
-      <button class="ui grey button" onclick="btnAsyncClick()">
-        <i class="hand paper outline icon"></i>
-        Async-Await
-      </button>
-      <button class="ui brown button" onclick="btnHoistingClick()">
-        Hoisting
-      </button>
-      <button class="ui pink button" onclick="btnHOFClick()">HOF</button>
-      <button class="ui yellow button" onclick="btnClosuresClick()">
-        Closures
-      </button>
-
-      <button class="ui olive button" onclick="btnCallMethodClick()">
-        Call Methods
-      </button>
-
-      <button class="ui orange button" onclick="btnApplyMethodClick()">
-        Apply Methods
-      </button>
-
-      <button class="ui teal button" onclick="btnBindMethodClick()">
-        Bind Methods
-      </button>
-      <button class="ui grey button" onclick="btnCurryingClick()">
-        Currying
-      </button>
-      <button class="ui violet button" onclick="btnInterviewQuestionsClick()">
+    <div class="ui sidebar inverted vertical menu">
+      <a class="item" onclick="btnPromiseClick()"> Promise </a>
+      <a class="item" onclick=""> Event Loop </a>
+      <a class="item" onclick="btnAsyncClick()"> Async Await </a>
+      <a class="item" onclick="btnHoistingClick()"> Hoisting </a>
+      <a class="item" onclick="btnHOFClick()"> Higher Order Functions </a>
+      <a class="item" onclick="btnClosuresClick()"> Closures </a>
+      <a class="item" onclick="btnCallMethodClick()"> Call Method </a>
+      <a class="item" onclick="btnApplyMethodClick()"> Apply Method </a>
+      <a class="item" onclick="btnBindMethodClick()"> Bind Method </a>
+      <a class="item" onclick="btnCurryingClick()"> Currying </a>
+      <a class="item" onclick="btnPassByValueReferenceClick()">
+        Pass By Value & Reference
+      </a>
+      <a class="item" onclick="btnArrayMethodsClick()"> Array Methods </a>
+      <a class="item" onclick="btnInterviewQuestionsClick()">
         Interview Questions
-      </button>
+      </a>
     </div>
-    <div class="ui segment" id="root"></div>
-
-    <!-- scripts are added here -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
-
-    <!-- <script src="/promise/code.js"></script> -->
+    <div class="pusher" id="sidebarId">
+      <!-- Site content !-->
+      <!-- <div class="ui black message">Learn Javascript with Hema</div> -->
+      <div class="ui segment" id="root"></div>
+    </div>
   </body>
 </html>

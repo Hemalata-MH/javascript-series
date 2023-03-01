@@ -10,7 +10,7 @@ Here will cover most of the JS concepts which will help us to get selected for t
 
 [Async-Await ](async-await/code.js)
 
-[Hoising ](hoisting/code.js)
+[Hoisting ]()
 
 [Higher Order Functions ](hof/code.js)
 
@@ -23,5 +23,9 @@ Here will cover most of the JS concepts which will help us to get selected for t
 [Bind Method ](bind/code.js)
 
 [Currying ](currying/code.js)
+
+[Pass By Value & Pass By Reference ](passByValueReference/code.js)
+
+[Array Methods ](array-methods/code.js)
 
 [Interview Questions ](interview-questions/code.js)
